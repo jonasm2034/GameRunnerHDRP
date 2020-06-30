@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class PlayerMovement2 : MonoBehaviour {
 
     public CharacterController controller;
     public GameObject follower;
+    public GameObject Audio;
 
     public float speedvalue = 30f;
     public float gravity = -50f;
@@ -17,7 +19,7 @@ public class PlayerMovement2 : MonoBehaviour {
     public float maxgrappledistance = 70f;
     float swingspeed;
     float swingTimer = 0.2f;
-    bool doubleJumping = false;
+    public bool doubleJumping = false;
 
     public Transform groundCheck;
     public Transform hitBox;
@@ -25,7 +27,7 @@ public class PlayerMovement2 : MonoBehaviour {
     public LayerMask groundMask;
 
     Vector3 velocity;
-    bool isGrounded;
+    public bool isGrounded;
     bool hittingWall;
 
     int layerMaskgrapple = 1 << 9;
@@ -67,7 +69,7 @@ public class PlayerMovement2 : MonoBehaviour {
     bool gamestart = false;
     Vector3 currentDirection;
     float wallrunRotation;
-    bool isDashing = false;
+    public bool isDashing = false;
     bool reduceSpeed;
     public float dashTimer;
     bool isSliding;
@@ -87,6 +89,8 @@ public class PlayerMovement2 : MonoBehaviour {
     float landingVelocity;
     bool hasLanded;
     float landingTimer;
+    public bool isJumping;
+    public bool playGrappleSound;
 
     void stopSliding()
     {
@@ -115,6 +119,7 @@ public class PlayerMovement2 : MonoBehaviour {
         isGrappling = false;
         upSwing = false;
         jumpOrigin = transform.position;
+        playGrappleSound = false;
     }
 
     void stopWallrun()
@@ -141,6 +146,7 @@ public class PlayerMovement2 : MonoBehaviour {
         isGrappling = true;
         pulling = false;
         angle = Vector3.Angle(transform.position - grapplePoint.point, lowest - grapplePoint.point);
+        playGrappleSound = true;
     }
 
     void doGrapple()
@@ -227,15 +233,10 @@ public class PlayerMovement2 : MonoBehaviour {
             SceneManager.LoadScene(0);
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            gamestart = true;
-        }
 
         if (gamestart)
         {
-            Debug.Log(wallRunning);
-
+            isJumping = false;
             if (landingTimer >= 1 && !isGrounded)
             {
                 isLanding = true;
@@ -391,7 +392,6 @@ public class PlayerMovement2 : MonoBehaviour {
 
             }
 
-            //Debug.Log(wallNearby);
             if (isGrappling && wallNearby)
             {
                 cancelGrapple();
@@ -518,7 +518,7 @@ public class PlayerMovement2 : MonoBehaviour {
                 jumpOrigin = transform.position;
                 jumpCharge = 0;
                 doubleSpace = true;
-                
+                isJumping = true;
             }
 
             if (Input.GetButtonDown("Jump") && jumpMercy >= 0.15f && !wallRunning && !isGrappling && !doubleJumping)
@@ -552,6 +552,7 @@ public class PlayerMovement2 : MonoBehaviour {
                 cancelGrapple();
                 jumpCharge = 0;
                 doubleSpace = true;
+                isJumping = true;
             }
 
             if (Input.GetMouseButtonDown(1) && isGrappling)
@@ -669,6 +670,7 @@ public class PlayerMovement2 : MonoBehaviour {
                 jumpOrigin = transform.position;
                 jumpCharge = 0;
                 doubleSpace = true;
+                isJumping = true;
             }
 
             if (wallRunning && isGrounded)
@@ -723,10 +725,14 @@ public class PlayerMovement2 : MonoBehaviour {
             {
                 newRun = true;
             }
+
+
+        }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            gamestart = true;
         }
 
     }
-
     
-
 }
