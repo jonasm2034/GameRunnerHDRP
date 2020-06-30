@@ -671,6 +671,8 @@ public class PlayerMovement2 : MonoBehaviour {
                 jumpCharge = 0;
                 doubleSpace = true;
                 isJumping = true;
+                speed = speedvalue * 1.4f;
+                reduceSpeed = true;
             }
 
             if (wallRunning && isGrounded)
@@ -728,7 +730,7 @@ public class PlayerMovement2 : MonoBehaviour {
 
 
         }
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             gamestart = true;
         }
