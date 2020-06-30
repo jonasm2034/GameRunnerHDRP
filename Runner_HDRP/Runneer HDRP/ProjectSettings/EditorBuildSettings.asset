@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/credits.unity
     guid: 2fc6c6c1eeeb0f2458f43c5e45e21070
+  - enabled: 1
+    path: "Assets/scenes/Wei\xDFe Welt.unity"
+    guid: d3caddd182841ed48ad5736c5f3e9f62
   m_configObjects: {}

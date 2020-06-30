@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PortalTeleporter : MonoBehaviour {
+public class PortalAndereWelt : MonoBehaviour {
 
 	public Transform player;
 	public Transform reciever;

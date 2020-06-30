@@ -23,7 +23,7 @@ public class PortalTeleporter : MonoBehaviour {
 		{
 			//playerIsOverlapping = true;
 			//player.transform.position = new Vector3(994.43f, 5.8f, 3.93f);
-			SceneManager.LoadScene(1);
+			SceneManager.LoadScene(6);
 		}
 	}
 
