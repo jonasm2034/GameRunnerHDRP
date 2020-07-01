@@ -9,7 +9,7 @@ public class SceneChange : MonoBehaviour
     public PortalTeleporter teleported;
     public failing hasFailed;
 
-    void LateUpdate()
+    void Update()
     {
         Debug.Log(gamestart);
         if (Input.GetKeyUp(KeyCode.Space))
