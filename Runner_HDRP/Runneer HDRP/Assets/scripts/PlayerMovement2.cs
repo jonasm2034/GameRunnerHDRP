@@ -12,6 +12,7 @@ public class PlayerMovement2 : MonoBehaviour {
     public CharacterController controller;
     public GameObject follower;
     public GameObject Audio;
+    public SceneChange start;
 
     public float speedvalue = 30f;
     public float gravity = -50f;
@@ -66,7 +67,6 @@ public class PlayerMovement2 : MonoBehaviour {
     float leftrighttest;
     bool firstrun;
     public float currentVelocity;
-    bool gamestart = false;
     Vector3 currentDirection;
     float wallrunRotation;
     public bool isDashing = false;
@@ -234,7 +234,7 @@ public class PlayerMovement2 : MonoBehaviour {
         }
 
 
-        if (gamestart)
+        if (start.hasStarted)
         {
             isJumping = false;
             if (landingTimer >= 1 && !isGrounded)
@@ -729,10 +729,6 @@ public class PlayerMovement2 : MonoBehaviour {
             }
 
 
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            gamestart = true;
         }
 
     }

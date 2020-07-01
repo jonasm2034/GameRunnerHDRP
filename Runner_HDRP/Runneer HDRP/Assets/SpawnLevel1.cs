@@ -8,6 +8,7 @@ public class SpawnLevel1 : MonoBehaviour
 
     private int x = 4;
     private int y = 1;
+    public float lowest;
 
     public GameObject startBlock; //start Block
     public GameObject[] blockPrefabs; //Prefabs für alle BlockVarianten
@@ -58,6 +59,8 @@ public class SpawnLevel1 : MonoBehaviour
             middlemiddleBlock = middlemiddlemiddleBlock;
 
             middlemiddlemiddleBlock = nextBlock;
+
+            lowest = nextBlock.transform.position.y;
            
             
 

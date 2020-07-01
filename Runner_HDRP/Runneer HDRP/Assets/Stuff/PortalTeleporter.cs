@@ -7,6 +7,7 @@ public class PortalTeleporter : MonoBehaviour {
 
 	public Transform player;
 	public Transform reciever;
+	public bool hasTeleported = false;
 
 	private bool playerIsOverlapping = false;
 
@@ -24,6 +25,7 @@ public class PortalTeleporter : MonoBehaviour {
 			//playerIsOverlapping = true;
 			//player.transform.position = new Vector3(994.43f, 5.8f, 3.93f);
 			SceneManager.LoadScene(6);
+			hasTeleported = true;
 		}
 	}
 
