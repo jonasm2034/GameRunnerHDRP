@@ -84,7 +84,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   skyAmbientMode:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   fogType:
     m_OverrideState: 1
@@ -418,7 +418,7 @@ MonoBehaviour:
     m_Value: 0
   exposure:
     m_OverrideState: 1
-    m_Value: 6.39
+    m_Value: 11.89
   multiplier:
     m_OverrideState: 0
     m_Value: 1
@@ -445,25 +445,25 @@ MonoBehaviour:
     m_Value: 0
   top:
     m_OverrideState: 1
-    m_Value: {r: 8.993312, g: 8.993312, b: 8.993312, a: 1}
+    m_Value: {r: 0.65804803, g: 0.75244045, b: 0.86649805, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
   middle:
     m_OverrideState: 1
-    m_Value: {r: 0.26553044, g: 0.31672746, b: 0.3679245, a: 1}
+    m_Value: {r: 0.45403165, g: 0.5056673, b: 0.5377358, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
   bottom:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 0.11764706, g: 0.14571379, b: 0.16078432, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
   gradientDiffusion:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 5.12
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,8 +479,8 @@ MonoBehaviour:
   components:
   - {fileID: -6700233600462676377}
   - {fileID: -1747963458250274715}
-  - {fileID: 5298883982687445019}
   - {fileID: -574856884493778278}
+  - {fileID: 5298883982687445019}
   - {fileID: -5067777326175066638}
   - {fileID: 6846505512338449610}
   - {fileID: 274753976571497859}
@@ -507,7 +507,7 @@ MonoBehaviour:
     m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 3.62
+    m_Value: 6.8
     min: 0
   maximumVelocity:
     m_OverrideState: 0
